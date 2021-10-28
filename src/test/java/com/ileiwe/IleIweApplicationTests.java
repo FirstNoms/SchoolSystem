@@ -25,13 +25,15 @@ class IleIweApplicationTests {
 	@Test
 	public void connectionToDataBaseTest(){
 		String url="jdbc:mysql://localhost:3306/ileiwedb";
-		String username="userSchool";
+		String username="userSchool/" +
+				"";
 		String password="iwe111";
 		assertThat(dataSource).isNotNull();
 		log.info("Datasource properties -> {}", dataSource);
 		try{
 			Connection connection = dataSource.getConnection();
 			assertThat(connection).isNotNull();
+			assertThat(connection.getCatalog()).isEqualTo("ileiwedb");
 		}
 		catch (SQLException exception){
 			log.info("An exception occurred -> {}", exception.getMessage());
