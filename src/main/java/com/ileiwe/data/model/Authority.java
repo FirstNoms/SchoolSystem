@@ -8,6 +8,7 @@ import java.util.UUID;
 
 @Entity
 @Data
+
 public class Authority {
 
     @Id
@@ -17,4 +18,11 @@ public class Authority {
     @Enumerated(EnumType.STRING)
     private Role authority;
 
+    public Authority(Role role){
+        this.authority = role;
+    }
+
+    public Authority() {
+
+    }
 }
